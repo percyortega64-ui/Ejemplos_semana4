@@ -1,0 +1,90 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ejemplo02
+{
+    internal class Program
+    {
+        static public void lectura(int[] N)
+        {
+                        for (int i = 0; i < N.Length; i++)
+            {
+                Console.Write("Nota[" + i + "]=");
+                N[i] = int.Parse(Console.ReadLine());
+            }
+        }
+        static public void salida(int[] N)
+        {
+            for (int i = 0; i < N.Length; i++)
+            {
+                Console.WriteLine("Nota["+i+"]=" + N[i]);
+            }
+        }
+        static public void maximo(int[] N)
+        {
+            int mayor;
+            mayor = N[0];
+            for (int i = 0; i < N.Length; i++)
+            {
+                if (N[i] > mayor)
+                    mayor = N[i];
+            }
+            Console.WriteLine("La maxima nota es: "+ mayor);       
+        }
+        static public void ordenar_asc(int[] N)
+        {
+            int temp;
+            for (int i=0;i<N.Length-1; i++)
+            {
+                for(int j=0;j<N.Length-i-1; j++)
+                {
+                    if (N[j] > N[j + 1])
+                    {
+                        temp = N[j];
+                        N[j] = N[j + i];
+                        N[j + i] = temp;
+                    }
+                }
+            }
+        }
+        static public void ordenar_des(int[] N)
+        {
+            int temp;
+            for (int i = 0; i < N.Length-1 ; i++)
+            {
+                for (int j = 0; j < N.Length - i-1 ; j++)
+                {
+                    if (N[j] < N[j + 1])
+                    {
+                        temp = N[j];
+                        N[j] = N[j + i];
+                        N[j + i] = temp;
+                    }
+                }
+            }
+        }
+        static void Main(string[] args)
+        {
+            int n = 0;
+            Console.WriteLine("Ingrese el numero de notas: ");
+            n = int.Parse(Console.ReadLine());
+           
+            int [] notas=new int[n];
+            lectura(notas);
+            Console.WriteLine("*******************************notas ingresadas******************************** ");
+            salida(notas);
+            maximo(notas);
+            Console.WriteLine("*******************************notas ordenadas de forma ascendente ******************************** ");
+            ordenar_asc(notas);
+            salida(notas);
+            Console.WriteLine("*******************************notas ordenadas de forma descendente ******************************** ");
+            ordenar_des(notas);
+            salida(notas);
+            Console.ReadKey();
+        }
+    }
+}
