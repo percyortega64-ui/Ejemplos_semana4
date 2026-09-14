@@ -1,0 +1,109 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Practica2
+{
+    internal class Program
+    {
+        static public void lectura(int[] N)
+        {
+            for (int i = 0; i < N.Length; i++)
+            {
+                Console.Write("nota[" + i + "]=");
+                N[i] = int.Parse(Console.ReadLine());
+            }
+        }
+        static public void salida(int[] N)
+        {
+            for (int i = 0; i < N.Length; i++)
+            {
+                Console.WriteLine("Nota[" + i + "]=" + N[i]);
+            }
+        }
+        static public void cantidad0(int[]N)
+        {
+           
+            int c0 = 0;
+
+            for (int i = 0; i < N.Length; i++)
+            {
+                if (N[i] == 0)
+                {
+                    c0++;
+                }
+            }
+            Console.WriteLine("la cantidad de Alumnos con 0 son: " + c0);
+        }
+        static public void cantidad20(int[] N)
+        {
+
+            int c20 = 0;
+
+            for (int i = 0; i < N.Length; i++)
+            {
+                if (N[i] == 20)
+                {
+                    c20++;
+                }
+            }
+            Console.WriteLine("la cantidad de alumnos con 20 son: " + c20);
+        }
+        static public void aprobados(int[] N)
+        {
+            
+            int c_aprob = 0;
+
+            for (int i = 0; i < N.Length; i++)
+            {
+                if (N[i] >= 13)
+                {
+                    c_aprob++;
+                }
+            }
+            Console.WriteLine("la cantidad de alumnos aprobados es: " + c_aprob);
+        }
+        static public void desaprobados(int[] N)
+        {
+           
+            int c_des = 0;
+
+            for (int i = 0; i < N.Length; i++)
+            {
+                if (N[i] < 13)
+                {
+                    c_des++;
+                }
+            }
+            Console.WriteLine("la cantidad de Alumnos desaprobados es: " + c_des);
+        }
+        static void Main(string[] args)
+        {
+            int N;
+            do 
+            {
+                Console.WriteLine("ingrese la cantidad de notas");
+                N= int.Parse(Console.ReadLine());
+
+                if (N >10|| N <= 0)
+                {
+                                        Console.WriteLine("ingrese un numero valido");
+                }
+            } while (N> 10 || N <= 0);
+
+            N = int.Parse(Console.ReadLine());
+            int[] notas =new int[N];
+    
+  
+            lectura(notas);
+            cantidad0(notas);
+            cantidad20(notas);
+            desaprobados(notas);
+            aprobados(notas);
+            salida(notas);
+            Console.ReadKey();
+        }
+    }
+}
